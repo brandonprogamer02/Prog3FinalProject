@@ -1,0 +1,26 @@
+crud = insertar,borrar,editar,obtener,obtenerPorId
+
+-crud productos
+-crud detalle_orden
+-crud pedido
+-crud orden
+-crud categoria
+-crud cliente
+-crud usuario
+
+
+-listado de los clientes y de las ordenes que han hecho
+-integrar el sandbox de paypal para hacer los pagos
+-exportacion en csv se va a seleccionar un mes y nos va a indicar el nombre y correo de cada uno de los clientes que cumplen años en el mes seleccionado.
+
+
+valores para estado_orden:
+	*EN_PROCESO
+	*FINALIZADO
+
+valores para estado_pedido:
+	*PROCESANDO_ENVIO
+	*DE_CAMINO
+	*RECIBIDO
+
+
