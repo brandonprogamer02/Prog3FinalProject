@@ -21,6 +21,10 @@ SET time_zone = "+00:00";
 -- Database: `prog3finalproject`
 --
 
+CREATE DATABASE IF NOT EXISTS `db_finalproject` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `db_finalproject`;
+
+
 -- --------------------------------------------------------
 
 --
@@ -28,9 +32,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categoria` (
-  `id` int(11) NOT NULL,
-  `nombre` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` INT(11) NOT NULL,
+  `nombre` INT(11) NOT NULL
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -39,17 +43,17 @@ CREATE TABLE `categoria` (
 --
 
 CREATE TABLE `cliente` (
-  `id` int(11) NOT NULL,
-  `nombre_completo` varchar(20) NOT NULL,
-  `email` varchar(20) NOT NULL,
-  `nombre_usuario` varchar(20) NOT NULL,
-  `contrasena` varchar(20) NOT NULL,
-  `numero_contacto` int(11) NOT NULL,
-  `latitud` int(11) NOT NULL,
-  `longitud` int(11) NOT NULL,
-  `direccion` varchar(20) NOT NULL,
-  `fecha_nacimiento` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` INT(11) NOT NULL,
+  `nombre_completo` VARCHAR(20) NOT NULL,
+  `email` VARCHAR(20) NOT NULL,
+  `nombre_usuario` VARCHAR(20) NOT NULL,
+  `contrasena` VARCHAR(20) NOT NULL,
+  `numero_contacto` INT(11) NOT NULL,
+  `latitud` INT(11) NOT NULL,
+  `longitud` INT(11) NOT NULL,
+  `direccion` VARCHAR(20) NOT NULL,
+  `fecha_nacimiento` DATE NOT NULL
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -58,11 +62,11 @@ CREATE TABLE `cliente` (
 --
 
 CREATE TABLE `detalle_orden` (
-  `id` int(11) NOT NULL,
-  `producto_id` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL,
-  `orden_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` INT(11) NOT NULL,
+  `producto_id` INT(11) NOT NULL,
+  `cantidad` INT(11) NOT NULL,
+  `orden_id` INT(11) NOT NULL
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -71,9 +75,9 @@ CREATE TABLE `detalle_orden` (
 --
 
 CREATE TABLE `estado_orden` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` INT(11) NOT NULL,
+  `nombre` VARCHAR(20) NOT NULL
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -82,9 +86,9 @@ CREATE TABLE `estado_orden` (
 --
 
 CREATE TABLE `estado_pedido` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` INT(11) NOT NULL,
+  `nombre` VARCHAR(10) NOT NULL
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
