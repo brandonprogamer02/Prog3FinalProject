@@ -139,8 +139,3 @@ C:\Users\ARCUS COMP\Desktop\Cuatrimestre6\Programacion_III\Prog3FinalProject\api
 C:\Users\ARCUS COMP\Desktop\Cuatrimestre6\Programacion_III\Prog3FinalProject\api_finalproject\obj\Debug\net5.0\ref\api_finalproject.dll
 C:\Users\ARCUS COMP\Desktop\Cuatrimestre6\Programacion_III\Prog3FinalProject\api_finalproject\obj\Debug\net5.0\api_finalproject.pdb
 C:\Users\ARCUS COMP\Desktop\Cuatrimestre6\Programacion_III\Prog3FinalProject\api_finalproject\obj\Debug\net5.0\api_finalproject.genruntimeconfig.cache
-C:\Users\ARCUS COMP\Desktop\Cuatrimestre6\Programacion_III\Prog3FinalProject\api_finalproject\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\ARCUS COMP\Desktop\Cuatrimestre6\Programacion_III\Prog3FinalProject\api_finalproject\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-C:\Users\ARCUS COMP\Desktop\Cuatrimestre6\Programacion_III\Prog3FinalProject\api_finalproject\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\ARCUS COMP\Desktop\Cuatrimestre6\Programacion_III\Prog3FinalProject\api_finalproject\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
-C:\Users\ARCUS COMP\Desktop\Cuatrimestre6\Programacion_III\Prog3FinalProject\api_finalproject\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll

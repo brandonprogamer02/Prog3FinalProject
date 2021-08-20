@@ -6,13 +6,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using api_finalproject.Models;
-using api_finalproject.Models.Response;
-using Microsoft.AspNetCore.Identity;
-using System.Security.Claims;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using Microsoft.Extensions.Configuration;
-using System.IdentityModel.Tokens.Jwt;
 
 namespace api_finalproject.Controllers
 {
@@ -21,60 +14,94 @@ namespace api_finalproject.Controllers
     public class UsuariosController : ControllerBase
     {
         private readonly db_finalprojectContext _context;
-        private readonly UserManager<IdentityUser> userManager;
-        private readonly IConfiguration configuration;
 
-        public UsuariosController(db_finalprojectContext context, UserManager<IdentityUser> manager ,
-            IConfiguration configuration )
+        public UsuariosController(db_finalprojectContext context)
         {
             _context = context;
-            userManager = manager;
-            this.configuration = configuration;
         }
 
         // GET: api/Usuarios
-       
-        [HttpPost("registrar")] // api/Usuarios/registrar
-
-        public async Task<ActionResult<Response_Authentication>> Registrar(Credenciales credenciales)
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
         {
-            var usuario = new IdentityUser { UserName = credenciales.Email, Email = credenciales.Email };
-
-            var resultado = await userManager.CreateAsync(usuario, credenciales.password);
-
-            if (resultado.Succeeded)
-            {
-                return ConstruirToken(credenciales);
-            }
-            else
-            {
-                return BadRequest(resultado.Errors);
-            }
+            return await _context.Usuarios.ToListAsync();
         }
 
-        private Response_Authentication ConstruirToken(Credenciales credenciales)
+        // GET: api/Usuarios/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Usuario>> GetUsuario(int id)
         {
-            var Claims = new List<Claim>()
+            var usuario = await _context.Usuarios.FindAsync(id);
+
+            if (usuario == null)
             {
-                new Claim("Email", credenciales.Email)
+                return NotFound();
+            }
 
+            return usuario;
+        }
 
-            };
-
-            var llave = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["llaveJwt"]));
-
-            var creds = new SigningCredentials(llave, SecurityAlgorithms.HmacSha256);
-
-            var expirar = DateTime.UtcNow.AddYears(1);
-
-            var securityToken = new JwtSecurityToken(issuer: null, audience: null, claims: Claims,
-                expires: expirar, signingCredentials: creds);
-
-            return new Response_Authentication()
+        // PUT: api/Usuarios/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
+        {
+            if (id != usuario.Id)
             {
-                Token = new JwtSecurityTokenHandler().WriteToken(securityToken),
-                Fecha_Expira = expirar
-            };
+                return BadRequest();
+            }
+
+            _context.Entry(usuario).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UsuarioExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        // POST: api/Usuarios
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
+        public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
+        {
+            _context.Usuarios.Add(usuario);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
+        }
+
+        // DELETE: api/Usuarios/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUsuario(int id)
+        {
+            var usuario = await _context.Usuarios.FindAsync(id);
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+
+            _context.Usuarios.Remove(usuario);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        private bool UsuarioExists(int id)
+        {
+            return _context.Usuarios.Any(e => e.Id == id);
         }
     }
 }

@@ -7,7 +7,6 @@ namespace api_finalproject.Models.Response
 {
     public class Response<T>
     {
-        public string Token { get; set; }
         public int Exito { get; set; }
 
         public string Mensaje { get; set; }

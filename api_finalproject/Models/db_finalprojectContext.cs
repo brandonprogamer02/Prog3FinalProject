@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -7,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace api_finalproject.Models
 {
-    public partial class db_finalprojectContext : IdentityDbContext
+    public partial class db_finalprojectContext : DbContext
     {
         public db_finalprojectContext()
         {
@@ -39,8 +38,6 @@ namespace api_finalproject.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-
             modelBuilder.HasCharSet("utf8mb4")
                 .UseCollation("utf8mb4_general_ci");
 
