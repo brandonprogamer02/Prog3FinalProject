@@ -16,7 +16,7 @@ using System.IdentityModel.Tokens.Jwt;
 
 namespace api_finalproject.Controllers
 {
-    /*[Route("api/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class UsuariosController : ControllerBase
     {
@@ -76,5 +76,5 @@ namespace api_finalproject.Controllers
                 Fecha_Expira = expirar
             };
         }
-    }*/
+    }
 }
