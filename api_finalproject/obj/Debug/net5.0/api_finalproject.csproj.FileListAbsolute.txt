@@ -438,3 +438,5 @@ C:\Users\jpayano\Desktop\Prog3FinalProject\api_finalproject\obj\Debug\net5.0\api
 C:\Users\jpayano\Desktop\Prog3FinalProject\api_finalproject\obj\Debug\net5.0\ref\api_finalproject.dll
 C:\Users\jpayano\Desktop\Prog3FinalProject\api_finalproject\obj\Debug\net5.0\api_finalproject.pdb
 C:\Users\jpayano\Desktop\Prog3FinalProject\api_finalproject\obj\Debug\net5.0\api_finalproject.genruntimeconfig.cache
+C:\Users\jpayano\Desktop\Prog3FinalProject\api_finalproject\bin\Debug\net5.0\DocumentFormat.OpenXml.dll
+C:\Users\jpayano\Desktop\Prog3FinalProject\api_finalproject\bin\Debug\net5.0\System.IO.Packaging.dll

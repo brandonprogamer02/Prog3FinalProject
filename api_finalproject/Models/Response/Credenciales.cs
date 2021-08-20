@@ -14,5 +14,19 @@ namespace api_finalproject.Models.Response
 
         [Required]
         public string password { get; set; }
+        [Required]
+        public string NombreUsuario { get; set; }
+        [Required]
+        public string Contrasena { get; set; }
+        [Required]
+        public int NumeroContacto { get; set; }
+        [Required]
+        public int Latitud { get; set; }
+        [Required]
+        public int Longitud { get; set; }
+        [Required]
+        public string Direccion { get; set; }
+        [Required]
+        public DateTime FechaNacimiento { get; set; }
     }
 }

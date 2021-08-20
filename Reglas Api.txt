@@ -1,0 +1,13 @@
+Para tener autorizacion de la api.
+
+Primero registrarse con un correo electronico y password
+
+Despues ir a la esquina superior derecha donde dice Authorize y poner lo sigiuiente: 
+
+		Bearer (valor de su token pero sin los parentesis)
+
+
+una vez hecho esto dentran acesso a la api
+
+
+

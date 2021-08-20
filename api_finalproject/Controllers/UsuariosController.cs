@@ -23,13 +23,16 @@ namespace api_finalproject.Controllers
         private readonly db_finalprojectContext _context;
         private readonly UserManager<IdentityUser> userManager;
         private readonly IConfiguration configuration;
+        private readonly SignInManager<IdentityUser> signInManager;
 
         public UsuariosController(db_finalprojectContext context, UserManager<IdentityUser> manager ,
-            IConfiguration configuration )
+            IConfiguration configuration,
+            SignInManager<IdentityUser> signInManager)
         {
             _context = context;
             userManager = manager;
             this.configuration = configuration;
+            this.signInManager = signInManager;
         }
 
         // GET: api/Usuarios
@@ -51,6 +54,26 @@ namespace api_finalproject.Controllers
                 return BadRequest(resultado.Errors);
             }
         }
+
+
+        [HttpPost("login")]
+
+        public async Task<ActionResult<Response_Authentication>> Login(Credenciales credencialesUsuario)
+        {
+            var resultado = await signInManager.PasswordSignInAsync(credencialesUsuario.Email,
+                credencialesUsuario.password, isPersistent: false, lockoutOnFailure: false);
+
+            if (resultado.Succeeded)
+            {
+                return ConstruirToken(credencialesUsuario);
+            }
+            else
+            {
+                return BadRequest("Login incorrecto");
+            }
+        }
+
+
 
         private Response_Authentication ConstruirToken(Credenciales credenciales)
         {

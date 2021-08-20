@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Fn+X8paAswRTQ1RYN8OtgHVICS8cfmxn2ga0YYQkgc4uD0Zm0p+jaCeMhVOMdZCm/qXr990hRcw/apDFAtWniA==",
+  "dgSpecHash": "efhOvRY0gAvjv4lCndgT0taqlnAMV6yCw/zzOMUy6lYUDTGGOBQAhP8qWFoUgu30MIekqtNsrxjQHYgHxU3HRg==",
   "success": true,
   "projectFilePath": "C:\\Users\\jpayano\\Desktop\\Prog3FinalProject\\api_finalproject\\api_finalproject.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\jpayano\\.nuget\\packages\\documentformat.openxml\\2.13.1\\documentformat.openxml.2.13.1.nupkg.sha512",
     "C:\\Users\\jpayano\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\jpayano\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.9\\microsoft.aspnetcore.authentication.jwtbearer.5.0.9.nupkg.sha512",
     "C:\\Users\\jpayano\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.9\\microsoft.aspnetcore.cryptography.internal.5.0.9.nupkg.sha512",
@@ -123,6 +124,7 @@
     "C:\\Users\\jpayano\\.nuget\\packages\\system.io.compression.zipfile\\4.3.0\\system.io.compression.zipfile.4.3.0.nupkg.sha512",
     "C:\\Users\\jpayano\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\jpayano\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\jpayano\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512",
     "C:\\Users\\jpayano\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Users\\jpayano\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\jpayano\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
