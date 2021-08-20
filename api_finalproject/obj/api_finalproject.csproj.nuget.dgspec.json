@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Diogenes Ulloa\\Desktop\\repository\\Prog3FinalProject\\api_finalproject\\api_finalproject.csproj": {}
+    "C:\\Users\\jpayano\\Desktop\\Prog3FinalProject\\api_finalproject\\api_finalproject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Diogenes Ulloa\\Desktop\\repository\\Prog3FinalProject\\api_finalproject\\api_finalproject.csproj": {
+    "C:\\Users\\jpayano\\Desktop\\Prog3FinalProject\\api_finalproject\\api_finalproject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Diogenes Ulloa\\Desktop\\repository\\Prog3FinalProject\\api_finalproject\\api_finalproject.csproj",
+        "projectUniqueName": "C:\\Users\\jpayano\\Desktop\\Prog3FinalProject\\api_finalproject\\api_finalproject.csproj",
         "projectName": "api_finalproject",
-        "projectPath": "C:\\Users\\Diogenes Ulloa\\Desktop\\repository\\Prog3FinalProject\\api_finalproject\\api_finalproject.csproj",
-        "packagesPath": "C:\\Users\\Diogenes Ulloa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Diogenes Ulloa\\Desktop\\repository\\Prog3FinalProject\\api_finalproject\\obj\\",
+        "projectPath": "C:\\Users\\jpayano\\Desktop\\Prog3FinalProject\\api_finalproject\\api_finalproject.csproj",
+        "packagesPath": "C:\\Users\\jpayano\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jpayano\\Desktop\\Prog3FinalProject\\api_finalproject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Diogenes Ulloa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jpayano\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -111,7 +111,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

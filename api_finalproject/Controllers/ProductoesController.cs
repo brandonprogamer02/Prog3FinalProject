@@ -25,29 +25,49 @@ namespace api_finalproject.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Producto>>> GetProductos()
         {
-            return await _context.Productos.ToListAsync();
-        }
-        [HttpGet]
-        public async Task<IActionResult> GetProductosByCat()
-        {
-            //Response<List<TablaRobo>> respuesta = new Response<List<TablaRobo>>();
-            Response<List<Producto>> respuesta = new Response<List<Producto>>();
+
+            Response<List<Producto>> response = new Response<List<Producto>>();
+
             try
             {
+              
+                var listado = await _context.Productos.Include(G => G.Categoria).ToListAsync();
+                response.Exito = 1;
+                response.ls = listado;
 
 
-                var listado = await _context.Productos.Include(x => x.Categoria).ToListAsync();
-                respuesta.ls = listado;
             }
-            catch (Exception ex)
+            catch (Exception ex) 
             {
 
-                respuesta.Mensaje = ex.Message;
+                response.Mensaje = ex.Message;
             }
 
+            return Ok(response);
 
-            return Ok(respuesta);
         }
+
+        //[HttpGet]
+        //public async Task<IActionResult> GetProductosByCat()
+        //{
+        //    //Response<List<TablaRobo>> respuesta = new Response<List<TablaRobo>>();
+        //    Response<List<Producto>> respuesta = new Response<List<Producto>>();
+        //    try
+        //    {
+
+
+        //        var listado = await _context.Productos.ToListAsync();
+        //        respuesta.ls = listado;
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        respuesta.Mensaje = ex.Message;
+        //    }
+
+
+        //    return Ok(respuesta);
+        //}
 
         // GET: api/Productoes/5
         [HttpGet("{id}")]
