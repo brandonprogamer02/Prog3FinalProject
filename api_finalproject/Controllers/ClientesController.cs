@@ -109,18 +109,28 @@ namespace api_finalproject.Controllers
         
         // POST: api/Clientes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost("ClientRegistrer")]
 
-        public async Task<ActionResult<Response_Authentication>> Registrar(Credenciales credenciales , Cliente addcliente)
+        [HttpPost("ClientRegistrer")]
+        public async Task<ActionResult<Cliente>> PostCliente(Cliente cliente)
         {
-            var cliente = new IdentityUser { UserName = credenciales.Email, Email = credenciales.Email };
+
+
+            _context.Clientes.Add(cliente);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetCliente", new { id = cliente.Id }, cliente);
+        }
+
+        [HttpPost("RegistrarTokenParaCompras")]
+
+        public async Task<ActionResult<Response_Authentication>> Registrar(Credenciales credenciales)
+        {
+            var cliente = new IdentityUser { UserName = credenciales.Email, Email = credenciales.Email,};
 
             var resultado = await userManager.CreateAsync(cliente, credenciales.password);
 
             if (resultado.Succeeded)
             {
-                _context.Clientes.Add(addcliente);
-                await _context.SaveChangesAsync();
                 return ConstruirToken(credenciales);
             }
             else
@@ -128,14 +138,25 @@ namespace api_finalproject.Controllers
                 return BadRequest(resultado.Errors);
             }
         }
-        //public async Task<ActionResult<Cliente>> PostCliente(Cliente cliente)
-        //{
 
-        //    _context.Clientes.Add(cliente);
-        //    await _context.SaveChangesAsync();
 
-        //    return CreatedAtAction("GetCliente", new { id = cliente.Id }, cliente);
-        //}
+        [HttpPost("ClientLogin")]
+        public async Task<ActionResult<Response_Authentication>> Login(Credenciales credencialesUsuario)
+        {
+
+            var resultado = await signInManager.PasswordSignInAsync(credencialesUsuario.Email,
+                credencialesUsuario.password, isPersistent: false, lockoutOnFailure: false);
+
+            if (resultado.Succeeded)
+            {
+                return ConstruirToken(credencialesUsuario);
+            }
+            else
+            {
+                return BadRequest("Login incorrecto");
+            }
+        }
+
 
         // DELETE: api/Clientes/5
         [HttpDelete("{id}")]
