@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using api_finalproject.Models;
+using api_finalproject.Models.Response;
 
 namespace api_finalproject.Controllers
 {
@@ -25,6 +26,27 @@ namespace api_finalproject.Controllers
         public async Task<ActionResult<IEnumerable<Producto>>> GetProductos()
         {
             return await _context.Productos.ToListAsync();
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Producto>>> GetProductosByCat()
+        {
+            //Response<List<TablaRobo>> respuesta = new Response<List<TablaRobo>>();
+            Response<List<Producto>> respuesta = new Response<List<Producto>>();
+            try
+            {
+
+
+                var listado = await _context.Productos.Include(x => x.Categoria).ToListAsync();
+                respuesta.ls = listado;
+            }
+            catch (Exception ex)
+            {
+
+                respuesta.Mensaje = ex.Message;
+            }
+
+
+            return Ok(respuesta);
         }
 
         // GET: api/Productoes/5

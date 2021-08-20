@@ -24,6 +24,7 @@ namespace api_finalproject.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Categorium>>> GetCategoria()
         {
+
             return await _context.Categoria.ToListAsync();
         }
 
