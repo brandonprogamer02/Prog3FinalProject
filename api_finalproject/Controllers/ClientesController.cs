@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using api_finalproject.Models;
+using api_finalproject.Models.Response;
 
 namespace api_finalproject.Controllers
 {
@@ -24,7 +25,22 @@ namespace api_finalproject.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Cliente>>> GetClientes()
         {
-            return await _context.Clientes.ToListAsync();
+            Response<List<Cliente>> response = new Response<List<Cliente>>();
+
+            try
+            {
+                var listado = await _context.Clientes.Include(O=> O.Ordens).ToListAsync();
+                response.Exito = 1;
+                response.ls = listado;
+                
+            }
+            catch (Exception ex)
+            {
+
+                response.Mensaje = ex.Message;
+            }
+
+            return Ok(response);
         }
 
         // GET: api/Clientes/5

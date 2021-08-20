@@ -31,10 +31,9 @@ namespace api_finalproject.Controllers
             try
             {
               
-                var listado = await _context.Productos.Include(G => G.Categoria).ToListAsync();
+                var listado = await _context.Productos.Include(G => G.Categoria).Include(D => D.DetalleOrdens).ToListAsync();
                 response.Exito = 1;
                 response.ls = listado;
-
 
             }
             catch (Exception ex) 
@@ -47,7 +46,7 @@ namespace api_finalproject.Controllers
 
         }
 
-        //[HttpGet]
+        //[HttpGet("Ponerle lo que sea ")]
         //public async Task<IActionResult> GetProductosByCat()
         //{
         //    //Response<List<TablaRobo>> respuesta = new Response<List<TablaRobo>>();
