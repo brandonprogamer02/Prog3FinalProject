@@ -5,13 +5,9 @@ using System.Threading.Tasks;
 
 namespace api_finalproject.Models.Response
 {
-    public class Response<T>
+    public class Response_Authentication
     {
         public string Token { get; set; }
-        public int Exito { get; set; }
-
-        public string Mensaje { get; set; }
-
-        public T ls { get; set; }
+        public DateTime Fecha_Expira { get; set; }
     }
 }
