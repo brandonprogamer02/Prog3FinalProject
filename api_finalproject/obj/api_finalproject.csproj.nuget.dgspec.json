@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jpayano\\Desktop\\Prog3FinalProject\\api_finalproject\\api_finalproject.csproj": {}
+    "C:\\Users\\ARCUS COMP\\Desktop\\Cuatrimestre6\\Programacion_III\\Prog3FinalProject\\api_finalproject\\api_finalproject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jpayano\\Desktop\\Prog3FinalProject\\api_finalproject\\api_finalproject.csproj": {
+    "C:\\Users\\ARCUS COMP\\Desktop\\Cuatrimestre6\\Programacion_III\\Prog3FinalProject\\api_finalproject\\api_finalproject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jpayano\\Desktop\\Prog3FinalProject\\api_finalproject\\api_finalproject.csproj",
+        "projectUniqueName": "C:\\Users\\ARCUS COMP\\Desktop\\Cuatrimestre6\\Programacion_III\\Prog3FinalProject\\api_finalproject\\api_finalproject.csproj",
         "projectName": "api_finalproject",
-        "projectPath": "C:\\Users\\jpayano\\Desktop\\Prog3FinalProject\\api_finalproject\\api_finalproject.csproj",
-        "packagesPath": "C:\\Users\\jpayano\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jpayano\\Desktop\\Prog3FinalProject\\api_finalproject\\obj\\",
+        "projectPath": "C:\\Users\\ARCUS COMP\\Desktop\\Cuatrimestre6\\Programacion_III\\Prog3FinalProject\\api_finalproject\\api_finalproject.csproj",
+        "packagesPath": "C:\\Users\\ARCUS COMP\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ARCUS COMP\\Desktop\\Cuatrimestre6\\Programacion_III\\Prog3FinalProject\\api_finalproject\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\jpayano\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ARCUS COMP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -115,7 +119,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }
