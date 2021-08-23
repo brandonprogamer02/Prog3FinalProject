@@ -15,7 +15,7 @@ namespace api_finalproject.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasCharSet("utf8mb4")
-                .UseCollation("utf8mb4_general_ci")
+                .UseCollation("utf8mb4_0900_ai_ci")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.9");
 
@@ -218,16 +218,15 @@ namespace api_finalproject.Migrations
                         .HasColumnType("int(11)")
                         .HasColumnName("id");
 
-                    b.Property<int>("Nombre")
-                        .HasColumnType("int(11)")
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("nombre");
 
                     b.HasKey("Id");
 
                     b.ToTable("categoria");
-
-                    b
-                        .UseCollation("utf8mb4_0900_ai_ci");
                 });
 
             modelBuilder.Entity("api_finalproject.Models.Cliente", b =>
@@ -286,9 +285,6 @@ namespace api_finalproject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("cliente");
-
-                    b
-                        .UseCollation("utf8mb4_0900_ai_ci");
                 });
 
             modelBuilder.Entity("api_finalproject.Models.DetalleOrden", b =>
@@ -317,9 +313,6 @@ namespace api_finalproject.Migrations
                     b.HasIndex(new[] { "ProductoId" }, "producto_id");
 
                     b.ToTable("detalle_orden");
-
-                    b
-                        .UseCollation("utf8mb4_0900_ai_ci");
                 });
 
             modelBuilder.Entity("api_finalproject.Models.EstadoOrden", b =>
@@ -338,9 +331,6 @@ namespace api_finalproject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("estado_orden");
-
-                    b
-                        .UseCollation("utf8mb4_0900_ai_ci");
                 });
 
             modelBuilder.Entity("api_finalproject.Models.EstadoPedido", b =>
@@ -359,9 +349,6 @@ namespace api_finalproject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("estado_pedido");
-
-                    b
-                        .UseCollation("utf8mb4_0900_ai_ci");
                 });
 
             modelBuilder.Entity("api_finalproject.Models.Orden", b =>
@@ -396,9 +383,6 @@ namespace api_finalproject.Migrations
                     b.HasIndex(new[] { "EstadoOrdenId" }, "estado_orden_id");
 
                     b.ToTable("orden");
-
-                    b
-                        .UseCollation("utf8mb4_0900_ai_ci");
                 });
 
             modelBuilder.Entity("api_finalproject.Models.Pedido", b =>
@@ -428,13 +412,9 @@ namespace api_finalproject.Migrations
 
                     b.HasIndex(new[] { "EstadoPedidoId" }, "estado_pedido_id");
 
-                    b.HasIndex(new[] { "OrdenId" }, "orden_id")
-                        .HasDatabaseName("orden_id1");
+                    b.HasIndex(new[] { "OrdenId" }, "orden_id1");
 
                     b.ToTable("pedido");
-
-                    b
-                        .UseCollation("utf8mb4_0900_ai_ci");
                 });
 
             modelBuilder.Entity("api_finalproject.Models.Producto", b =>
@@ -473,9 +453,6 @@ namespace api_finalproject.Migrations
                     b.HasIndex(new[] { "CategoriaId" }, "categoria_id");
 
                     b.ToTable("producto");
-
-                    b
-                        .UseCollation("utf8mb4_0900_ai_ci");
                 });
 
             modelBuilder.Entity("api_finalproject.Models.Usuario", b =>
@@ -506,9 +483,6 @@ namespace api_finalproject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("usuario");
-
-                    b
-                        .UseCollation("utf8mb4_0900_ai_ci");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

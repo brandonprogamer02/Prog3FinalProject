@@ -39,31 +39,29 @@ namespace api_finalproject.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.HasCharSet("utf8mb4")
-                .UseCollation("utf8mb4_general_ci");
+                .UseCollation("utf8mb4_0900_ai_ci");
 
             modelBuilder.Entity<Categorium>(entity =>
             {
                 entity.ToTable("categoria");
-
-                entity.UseCollation("utf8mb4_0900_ai_ci");
 
                 entity.Property(e => e.Id)
                     .HasColumnType("int(11)")
                     .HasColumnName("id");
 
                 entity.Property(e => e.Nombre)
-                    .HasColumnType("int(11)")
+                    .IsRequired()
+                    .HasMaxLength(255)
                     .HasColumnName("nombre");
             });
 
             modelBuilder.Entity<Cliente>(entity =>
             {
                 entity.ToTable("cliente");
-
-                entity.UseCollation("utf8mb4_0900_ai_ci");
 
                 entity.Property(e => e.Id)
                     .HasColumnType("int(11)")
@@ -115,8 +113,6 @@ namespace api_finalproject.Models
             {
                 entity.ToTable("detalle_orden");
 
-                entity.UseCollation("utf8mb4_0900_ai_ci");
-
                 entity.HasIndex(e => e.OrdenId, "orden_id");
 
                 entity.HasIndex(e => e.ProductoId, "producto_id");
@@ -152,8 +148,6 @@ namespace api_finalproject.Models
             {
                 entity.ToTable("estado_orden");
 
-                entity.UseCollation("utf8mb4_0900_ai_ci");
-
                 entity.Property(e => e.Id)
                     .HasColumnType("int(11)")
                     .HasColumnName("id");
@@ -168,8 +162,6 @@ namespace api_finalproject.Models
             {
                 entity.ToTable("estado_pedido");
 
-                entity.UseCollation("utf8mb4_0900_ai_ci");
-
                 entity.Property(e => e.Id)
                     .HasColumnType("int(11)")
                     .HasColumnName("id");
@@ -183,8 +175,6 @@ namespace api_finalproject.Models
             modelBuilder.Entity<Orden>(entity =>
             {
                 entity.ToTable("orden");
-
-                entity.UseCollation("utf8mb4_0900_ai_ci");
 
                 entity.HasIndex(e => e.ClienteId, "cliente_id");
 
@@ -226,11 +216,9 @@ namespace api_finalproject.Models
             {
                 entity.ToTable("pedido");
 
-                entity.UseCollation("utf8mb4_0900_ai_ci");
-
                 entity.HasIndex(e => e.EstadoPedidoId, "estado_pedido_id");
 
-                entity.HasIndex(e => e.OrdenId, "orden_id");
+                entity.HasIndex(e => e.OrdenId, "orden_id1");
 
                 entity.Property(e => e.Id)
                     .HasColumnType("int(11)")
@@ -266,8 +254,6 @@ namespace api_finalproject.Models
             modelBuilder.Entity<Producto>(entity =>
             {
                 entity.ToTable("producto");
-
-                entity.UseCollation("utf8mb4_0900_ai_ci");
 
                 entity.HasIndex(e => e.CategoriaId, "categoria_id");
 
@@ -306,8 +292,6 @@ namespace api_finalproject.Models
             modelBuilder.Entity<Usuario>(entity =>
             {
                 entity.ToTable("usuario");
-
-                entity.UseCollation("utf8mb4_0900_ai_ci");
 
                 entity.Property(e => e.Id)
                     .HasColumnType("int(11)")

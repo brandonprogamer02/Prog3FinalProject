@@ -13,7 +13,7 @@ namespace api_finalproject.Models
         }
 
         public int Id { get; set; }
-        public int Nombre { get; set; }
+        public string Nombre { get; set; }
 
         public virtual ICollection<Producto> Productos { get; set; }
     }
