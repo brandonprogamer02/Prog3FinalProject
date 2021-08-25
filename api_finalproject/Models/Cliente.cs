@@ -18,8 +18,8 @@ namespace api_finalproject.Models
         public string NombreUsuario { get; set; }
         public string Contrasena { get; set; }
         public int NumeroContacto { get; set; }
-        public int Latitud { get; set; }
-        public int Longitud { get; set; }
+        public float Latitud { get; set; }
+        public float Longitud { get; set; }
         public string Direccion { get; set; }
         public DateTime FechaNacimiento { get; set; }
 

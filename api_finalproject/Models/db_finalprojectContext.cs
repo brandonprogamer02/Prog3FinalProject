@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace api_finalproject.Models
 {
-    public partial class db_finalprojectContext : IdentityDbContext
+    public partial class db_finalprojectContext : IdentityDbContext 
     {
         public db_finalprojectContext()
         {
@@ -18,9 +18,17 @@ namespace api_finalproject.Models
         {
         }
 
+        public virtual DbSet<Aspnetrole> Aspnetroles { get; set; }
+        public virtual DbSet<Aspnetroleclaim> Aspnetroleclaims { get; set; }
+        public virtual DbSet<Aspnetuser> Aspnetusers { get; set; }
+        public virtual DbSet<Aspnetuserclaim> Aspnetuserclaims { get; set; }
+        public virtual DbSet<Aspnetuserlogin> Aspnetuserlogins { get; set; }
+        public virtual DbSet<Aspnetuserrole> Aspnetuserroles { get; set; }
+        public virtual DbSet<Aspnetusertoken> Aspnetusertokens { get; set; }
         public virtual DbSet<Categorium> Categoria { get; set; }
         public virtual DbSet<Cliente> Clientes { get; set; }
         public virtual DbSet<DetalleOrden> DetalleOrdens { get; set; }
+        public virtual DbSet<Efmigrationshistory> Efmigrationshistories { get; set; }
         public virtual DbSet<EstadoOrden> EstadoOrdens { get; set; }
         public virtual DbSet<EstadoPedido> EstadoPedidos { get; set; }
         public virtual DbSet<Orden> Ordens { get; set; }
@@ -39,11 +47,127 @@ namespace api_finalproject.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
-            base.OnModelCreating(modelBuilder);
-
             modelBuilder.HasCharSet("utf8mb4")
                 .UseCollation("utf8mb4_0900_ai_ci");
+
+            modelBuilder.Entity<Aspnetrole>(entity =>
+            {
+                entity.ToTable("aspnetroles");
+
+                entity.HasIndex(e => e.NormalizedName, "RoleNameIndex")
+                    .IsUnique();
+
+                entity.Property(e => e.Name).HasMaxLength(256);
+
+                entity.Property(e => e.NormalizedName).HasMaxLength(256);
+            });
+
+            modelBuilder.Entity<Aspnetroleclaim>(entity =>
+            {
+                entity.ToTable("aspnetroleclaims");
+
+                entity.HasIndex(e => e.RoleId, "IX_AspNetRoleClaims_RoleId");
+
+                entity.Property(e => e.Id).HasColumnType("int(11)");
+
+                entity.Property(e => e.RoleId).IsRequired();
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.Aspnetroleclaims)
+                    .HasForeignKey(d => d.RoleId)
+                    .HasConstraintName("FK_AspNetRoleClaims_AspNetRoles_RoleId");
+            });
+
+            modelBuilder.Entity<Aspnetuser>(entity =>
+            {
+                entity.ToTable("aspnetusers");
+
+                entity.HasIndex(e => e.NormalizedEmail, "EmailIndex");
+
+                entity.HasIndex(e => e.NormalizedUserName, "UserNameIndex")
+                    .IsUnique();
+
+                entity.Property(e => e.AccessFailedCount).HasColumnType("int(11)");
+
+                entity.Property(e => e.Email).HasMaxLength(256);
+
+                entity.Property(e => e.LockoutEnd).HasMaxLength(6);
+
+                entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
+
+                entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
+
+                entity.Property(e => e.UserName).HasMaxLength(256);
+            });
+
+            modelBuilder.Entity<Aspnetuserclaim>(entity =>
+            {
+                entity.ToTable("aspnetuserclaims");
+
+                entity.HasIndex(e => e.UserId, "IX_AspNetUserClaims_UserId");
+
+                entity.Property(e => e.Id).HasColumnType("int(11)");
+
+                entity.Property(e => e.UserId).IsRequired();
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Aspnetuserclaims)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_AspNetUserClaims_AspNetUsers_UserId");
+            });
+
+            modelBuilder.Entity<Aspnetuserlogin>(entity =>
+            {
+                entity.HasKey(e => new { e.LoginProvider, e.ProviderKey })
+                    .HasName("PRIMARY")
+                    .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
+
+                entity.ToTable("aspnetuserlogins");
+
+                entity.HasIndex(e => e.UserId, "IX_AspNetUserLogins_UserId");
+
+                entity.Property(e => e.UserId).IsRequired();
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Aspnetuserlogins)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_AspNetUserLogins_AspNetUsers_UserId");
+            });
+
+            modelBuilder.Entity<Aspnetuserrole>(entity =>
+            {
+                entity.HasKey(e => new { e.UserId, e.RoleId })
+                    .HasName("PRIMARY")
+                    .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
+
+                entity.ToTable("aspnetuserroles");
+
+                entity.HasIndex(e => e.RoleId, "IX_AspNetUserRoles_RoleId");
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.Aspnetuserroles)
+                    .HasForeignKey(d => d.RoleId)
+                    .HasConstraintName("FK_AspNetUserRoles_AspNetRoles_RoleId");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Aspnetuserroles)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_AspNetUserRoles_AspNetUsers_UserId");
+            });
+
+            modelBuilder.Entity<Aspnetusertoken>(entity =>
+            {
+                entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name })
+                    .HasName("PRIMARY")
+                    .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0, 0 });
+
+                entity.ToTable("aspnetusertokens");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Aspnetusertokens)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_AspNetUserTokens_AspNetUsers_UserId");
+            });
 
             modelBuilder.Entity<Categorium>(entity =>
             {
@@ -86,13 +210,9 @@ namespace api_finalproject.Models
                     .HasColumnType("date")
                     .HasColumnName("fecha_nacimiento");
 
-                entity.Property(e => e.Latitud)
-                    .HasColumnType("int(11)")
-                    .HasColumnName("latitud");
+                entity.Property(e => e.Latitud).HasColumnName("latitud");
 
-                entity.Property(e => e.Longitud)
-                    .HasColumnType("int(11)")
-                    .HasColumnName("longitud");
+                entity.Property(e => e.Longitud).HasColumnName("longitud");
 
                 entity.Property(e => e.NombreCompleto)
                     .IsRequired()
@@ -142,6 +262,20 @@ namespace api_finalproject.Models
                     .WithMany(p => p.DetalleOrdens)
                     .HasForeignKey(d => d.ProductoId)
                     .HasConstraintName("detalle_orden_ibfk_2");
+            });
+
+            modelBuilder.Entity<Efmigrationshistory>(entity =>
+            {
+                entity.HasKey(e => e.MigrationId)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("__efmigrationshistory");
+
+                entity.Property(e => e.MigrationId).HasMaxLength(150);
+
+                entity.Property(e => e.ProductVersion)
+                    .IsRequired()
+                    .HasMaxLength(32);
             });
 
             modelBuilder.Entity<EstadoOrden>(entity =>
@@ -228,13 +362,9 @@ namespace api_finalproject.Models
                     .HasColumnType("int(11)")
                     .HasColumnName("estado_pedido_id");
 
-                entity.Property(e => e.Latitud)
-                    .HasColumnType("int(11)")
-                    .HasColumnName("latitud");
+                entity.Property(e => e.Latitud).HasColumnName("latitud");
 
-                entity.Property(e => e.Longitud)
-                    .HasColumnType("int(11)")
-                    .HasColumnName("longitud");
+                entity.Property(e => e.Longitud).HasColumnName("longitud");
 
                 entity.Property(e => e.OrdenId)
                     .HasColumnType("int(11)")
