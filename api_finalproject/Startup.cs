@@ -55,7 +55,7 @@ namespace api_finalproject
             services.AddControllers();
             services.AddCors();
             services.AddControllersWithViews().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-            services.AddDbContext<db_finalprojectContext>(options => options.UseMySql("server=localhost;uid=root;pwd=mysql;database=db_finalproject", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.18-mysql")));
+            services.AddDbContext<db_finalprojectContext>(options => options.UseMySql("Server=amadis-server.mysql.database.azure.com; Port=3306; Database=db_finalproject; Uid=djunior@amadis-server; Pwd=Juniorulloa23; SslMode=Preferred;", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.18-mysql")));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "api_finalproject", Version = "v1" });
@@ -94,7 +94,7 @@ namespace api_finalproject
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            if (env.IsDevelopment() || env.IsProduction())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();

@@ -10,5 +10,6 @@
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_DbContextTypeFullName>api_finalproject.Models.db_finalprojectContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
+    <NameOfLastUsedPublishProfile>amadis-api-server - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

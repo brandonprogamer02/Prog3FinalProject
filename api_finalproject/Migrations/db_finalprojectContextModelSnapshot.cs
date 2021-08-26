@@ -14,8 +14,8 @@ namespace api_finalproject.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasCharSet("utf8mb4")
-                .UseCollation("utf8mb4_0900_ai_ci")
+                .HasCharSet("latin1")
+                .UseCollation("latin1_bin")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.9");
 
@@ -258,12 +258,12 @@ namespace api_finalproject.Migrations
                         .HasColumnType("date")
                         .HasColumnName("fecha_nacimiento");
 
-                    b.Property<int>("Latitud")
-                        .HasColumnType("int(11)")
+                    b.Property<float>("Latitud")
+                        .HasColumnType("float")
                         .HasColumnName("latitud");
 
-                    b.Property<int>("Longitud")
-                        .HasColumnType("int(11)")
+                    b.Property<float>("Longitud")
+                        .HasColumnType("float")
                         .HasColumnName("longitud");
 
                     b.Property<string>("NombreCompleto")
@@ -396,12 +396,12 @@ namespace api_finalproject.Migrations
                         .HasColumnType("int(11)")
                         .HasColumnName("estado_pedido_id");
 
-                    b.Property<int>("Latitud")
-                        .HasColumnType("int(11)")
+                    b.Property<float>("Latitud")
+                        .HasColumnType("float")
                         .HasColumnName("latitud");
 
-                    b.Property<int>("Longitud")
-                        .HasColumnType("int(11)")
+                    b.Property<float>("Longitud")
+                        .HasColumnType("float")
                         .HasColumnName("longitud");
 
                     b.Property<int>("OrdenId")

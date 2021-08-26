@@ -144,7 +144,6 @@ C:\Users\ARCUS COMP\Desktop\Cuatrimestre6\Programacion_III\Prog3FinalProject\api
 C:\Users\ARCUS COMP\Desktop\Cuatrimestre6\Programacion_III\Prog3FinalProject\api_finalproject\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\ARCUS COMP\Desktop\Cuatrimestre6\Programacion_III\Prog3FinalProject\api_finalproject\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\ARCUS COMP\Desktop\Cuatrimestre6\Programacion_III\Prog3FinalProject\api_finalproject\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
-C:\Users\Diogenes Ulloa\Desktop\repository\Prog3FinalProject\api_finalproject\obj\Debug\net5.0\api_finalproject.csprojAssemblyReference.cache
 C:\Users\Diogenes Ulloa\Desktop\repository\Prog3FinalProject\api_finalproject\obj\Debug\net5.0\api_finalproject.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Diogenes Ulloa\Desktop\repository\Prog3FinalProject\api_finalproject\obj\Debug\net5.0\api_finalproject.AssemblyInfoInputs.cache
 C:\Users\Diogenes Ulloa\Desktop\repository\Prog3FinalProject\api_finalproject\obj\Debug\net5.0\api_finalproject.AssemblyInfo.cs
@@ -443,3 +442,6 @@ C:\Users\jpayano\Desktop\Prog3FinalProject\api_finalproject\bin\Debug\net5.0\Sys
 C:\Users\ARCUS COMP\Desktop\Cuatrimestre6\Programacion_III\Prog3FinalProject\api_finalproject\bin\Debug\net5.0\DocumentFormat.OpenXml.dll
 C:\Users\ARCUS COMP\Desktop\Cuatrimestre6\Programacion_III\Prog3FinalProject\api_finalproject\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\ARCUS COMP\Desktop\Cuatrimestre6\Programacion_III\Prog3FinalProject\api_finalproject\bin\Debug\net5.0\System.IO.Packaging.dll
+C:\Users\Diogenes Ulloa\Desktop\repository\Prog3FinalProject\api_finalproject\bin\Debug\net5.0\DocumentFormat.OpenXml.dll
+C:\Users\Diogenes Ulloa\Desktop\repository\Prog3FinalProject\api_finalproject\bin\Debug\net5.0\System.IO.Packaging.dll
+C:\Users\Diogenes Ulloa\Desktop\repository\Prog3FinalProject\api_finalproject\obj\Debug\net5.0\api_finalproject.csprojAssemblyReference.cache
